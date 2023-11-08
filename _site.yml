@@ -1,0 +1,16 @@
+navbar:
+  left: 
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "Projects"
+      href: projects.html
+  right:
+    - icon: fa-envelope fa-lg
+      href: mailto:<mail@jofaha.de>
+    - icon: fa-github fa-lg
+      href: http://github.com/hahnfabian/
+output:
+html_document:
+theme: sandstone
