@@ -1,5 +1,5 @@
 defaults:
   - scope:
-      path: "subfolder"
+      path: "_site"
     values:
       layout: "default"
