@@ -1,5 +1,0 @@
-defaults:
-  - scope:
-      path: "_site"
-    values:
-      layout: "default"
