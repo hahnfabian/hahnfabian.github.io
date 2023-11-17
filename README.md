@@ -1,2 +1,2 @@
-# hahnfabian.github.io
-personal website using R markdown
+## Hey, this is my personal website
+made using R markdown
