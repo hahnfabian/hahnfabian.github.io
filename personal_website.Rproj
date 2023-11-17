@@ -13,4 +13,4 @@ RnwWeave: Sweave
 LaTeX: pdfLaTeX
 
 BuildType: Website
-WebsitePath: blog
+WebsitePath: C:/Users/jofah/Desktop/personal_website
