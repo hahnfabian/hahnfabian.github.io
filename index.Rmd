@@ -1,5 +1,5 @@
 ---
-  title: "Fabian Hahn"
+  title: "Hi, my name is Fabian Hahn."
 ---
   
-  Hello, Website! Welcome to the world.     
+  This is my personal website.     

@@ -3,13 +3,13 @@ name: "Fabian Hahn"
 navbar:
   left: 
     - text: "Home"
-      href: index.html
+      href: ../index.html
     - text: "About"
-      href: about.html
+      href: ../about.html
     - text: "Projects"
-      href: projects.html
+      href: ../projects.html
     - text: "Blog"
-      href: blog/index.html
+      href: index.html
       
   right:
     - icon: fa-envelope fa-lg

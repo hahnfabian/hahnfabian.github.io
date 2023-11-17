@@ -11,7 +11,7 @@
 
 
 
-<title>Hi, my name is Fabian Hahn.</title>
+<title>Solving Sudoku with Convolution Neural Network</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -245,16 +245,16 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
+  <a href="../index.html">Home</a>
 </li>
 <li>
-  <a href="about.html">About</a>
+  <a href="../about.html">About</a>
 </li>
 <li>
-  <a href="projects.html">Projects</a>
+  <a href="../projects.html">Projects</a>
 </li>
 <li>
-  <a href="blog/index.html">Blog</a>
+  <a href="index.html">Blog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -279,12 +279,84 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Hi, my name is Fabian Hahn.</h1>
+<h1 class="title toc-ignore">Solving Sudoku with Convolution Neural
+Network</h1>
 
 </div>
 
 
-<p>This is my personal website.</p>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<p>Sudoku, the classic number puzzle game, has been a challenging
+problem for both humans and computers. In this blog post, we’ll explore
+how to use Convolutional Neural Networks (CNNs) to solve Sudoku puzzles.
+We’ll walk through the structure of the CNN model, the data preparation
+steps, and demonstrate the process of training the model and using it to
+solve Sudoku puzzles.</p>
+</div>
+<div id="sudoku-and-cnns" class="section level3">
+<h3>Sudoku and CNNs</h3>
+<p>Sudoku is fundamentally a pattern recognition problem. A CNN, a
+neural network architecture designed for image-related tasks, proves to
+be a potent tool. Its ability to recognize spatial patterns makes it apt
+for decoding the intricate relationships within a Sudoku grid.</p>
+<p>###Model Architecture Our CNN model comprises convolutional layers
+interspersed with batch normalization, followed by flattening, dense,
+reshaping, and softmax activation layers. Each convolutional layer
+detects local patterns, learning to recognize the key features of Sudoku
+puzzles. The softmax layer outputs probabilities for each digit in each
+cell, facilitating the model’s ability to fill in the blanks
+intelligently.</p>
+</div>
+<div id="data-acquisition" class="section level2">
+<h2>Data acquisition</h2>
+<p>I found a <a
+href="https://www.kaggle.com/datasets/rohanrao/sudoku/data">dataset</a>
+of 9 million sudoku puzzles and solutions on <a
+href="https://kaggle.com">Kaggle</a>.<br />
+The data is provided in two groups: <code>puzzle</code> and
+<code>solution</code>. Each puzzle is represented by a string of 81
+numbers. A <code>0</code> represents a blank cell.</p>
+<p>Following is a <code>9x9</code> sudoku converted from a string.</p>
+<pre class="python"><code>530070000600195000098000060800060003400803001700020006060000280000419005000080079</code></pre>
+<pre class="python"><code>[
+    [5, 3, 0, 0, 7, 0, 0, 0, 0],
+    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+    [0, 9, 8, 0, 0, 0, 0, 6, 0],
+    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+    [0, 0, 0, 0, 8, 0, 0, 7, 9]
+]</code></pre>
+</div>
+<div id="data-processing" class="section level2">
+<h2>Data Processing</h2>
+<p>The puzzles are formatted into a <code>9x9x1</code> array suitable
+for input into the CNN.</p>
+<pre class="python"><code>    for i in feature_raw:
+        x = np.array([int(j) for j in i]).reshape((9,9,1))
+        feature.append(x)</code></pre>
+<p>Normalization is applied to center the values around zero, aiding the
+network’s convergence during training.</p>
+<pre class="python"><code>    feature = feature/9 
+    feature -= 0.5 </code></pre>
+<div id="training-the-model" class="section level3">
+<h3>Training the Model</h3>
+<p>With data ready, the model is compiled using the Adam optimizer and
+sparse categorical cross-entropy loss, a suitable choice for multi-class
+classification problems like Sudoku solving. Training involves iterating
+over the dataset, adjusting weights to minimize the loss function. In
+our example, two epochs suffice to exhibit a discernible reduction in
+the loss.</p>
+</div>
+<div id="sudoku-puzzle-solving" class="section level3">
+<h3>Sudoku Puzzle Solving</h3>
+<p>The real magic happens when using the trained model to solve Sudoku
+puzzles.</p>
+</div>
+</div>
 
 
 

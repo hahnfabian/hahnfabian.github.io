@@ -1,0 +1,54 @@
+---
+  title: "Solving Sudoku with Convolution Neural Network"
+---
+### Introduction
+Sudoku, the classic number puzzle game, has been a challenging problem for both humans and computers. In this blog post, we'll explore how to use Convolutional Neural Networks (CNNs) to solve Sudoku puzzles. We'll walk through the structure of the CNN model, the data preparation steps, and demonstrate the process of training the model and using it to solve Sudoku puzzles.
+
+### Sudoku and CNNs
+Sudoku is fundamentally a pattern recognition problem. A CNN, a neural network architecture designed for image-related tasks, proves to be a potent tool. Its ability to recognize spatial patterns makes it apt for decoding the intricate relationships within a Sudoku grid.
+
+###Model Architecture
+Our CNN model comprises convolutional layers interspersed with batch normalization, followed by flattening, dense, reshaping, and softmax activation layers. Each convolutional layer detects local patterns, learning to recognize the key features of Sudoku puzzles. The softmax layer outputs probabilities for each digit in each cell, facilitating the model's ability to fill in the blanks intelligently.
+
+## Data acquisition
+I found a [dataset](https://www.kaggle.com/datasets/rohanrao/sudoku/data) of 9 million sudoku puzzles and solutions on [Kaggle](https://kaggle.com).   
+The data is provided in two groups: `puzzle` and `solution`. Each puzzle is represented by a string of 81 numbers. A `0` represents a blank cell.
+
+Following is a `9x9` sudoku converted from a string.
+``` python
+530070000600195000098000060800060003400803001700020006060000280000419005000080079
+```
+
+``` python
+[
+    [5, 3, 0, 0, 7, 0, 0, 0, 0],
+    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+    [0, 9, 8, 0, 0, 0, 0, 6, 0],
+    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+    [0, 0, 0, 0, 8, 0, 0, 7, 9]
+]
+```
+## Data Processing
+The puzzles are formatted into a `9x9x1` array suitable for input into the CNN.
+``` python
+    for i in feature_raw:
+        x = np.array([int(j) for j in i]).reshape((9,9,1))
+        feature.append(x)
+```
+
+Normalization is applied to center the values around zero, aiding the network's convergence during training.   
+``` python
+    feature = feature/9 
+    feature -= 0.5 
+```
+
+### Training the Model
+With data ready, the model is compiled using the Adam optimizer and sparse categorical cross-entropy loss, a suitable choice for multi-class classification problems like Sudoku solving. Training involves iterating over the dataset, adjusting weights to minimize the loss function. In our example, two epochs suffice to exhibit a discernible reduction in the loss.
+
+### Sudoku Puzzle Solving
+
+The real magic happens when using the trained model to solve Sudoku puzzles.

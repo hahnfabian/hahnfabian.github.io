@@ -1,0 +1,8 @@
+---
+  title: "Blog"
+---
+  
+  This is my "blog" where I write down stuff.
+  
+  - 2023
+    - [Solving Sudoku with Convolution Neural Network](sudoku-solver.html)
