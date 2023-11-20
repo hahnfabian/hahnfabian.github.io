@@ -9,7 +9,7 @@ navbar:
     - text: "Projects"
       href: projects.html
     - text: "Blog"
-      href: b/index.html
+      href: blog/index.html
       
   right:
     - icon: fa-envelope fa-lg
