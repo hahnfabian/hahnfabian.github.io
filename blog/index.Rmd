@@ -1,8 +1,8 @@
 ---
   title: "Blog"
 ---
+
+This is a collection of some documents, in no particular order other than the year.
   
-  This is my "blog" where I write down stuff.
-  
-  - 2023
-    - [Solving Sudoku with Convolution Neural Network](sudoku-solver.html)
+- 2023
+  - [Solving Sudoku with Convolution Neural Network](sudoku-solver.html)
