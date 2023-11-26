@@ -11,7 +11,7 @@
 
 
 
-<title>Blog</title>
+<title>Creating a website with R</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -276,21 +276,233 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Blog</h1>
+<h1 class="title toc-ignore">Creating a website with R</h1>
 
 </div>
 
 
-<p>This is a collection of some documents, in no particular order other
-than the year.</p>
+<div id="motivation" class="section level3">
+<h3>Motivation</h3>
+<p>After spending way to much time trying to create the perfect website
+using React, JavaScript, HTML, CSS, etc., I finally realized what should
+have been obvious from the start: Even with maximum effort my design
+won’t be very presentable.</p>
+<p>So what’s the alternative? Keeping it simple.</p>
+<p>TL;DR: keep it simple</p>
+<p><br></p>
+</div>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<p>This tutorial will provide an overview into creating a website with R
+markdown and hosting using your Github account.</p>
+<p><br></p>
+</div>
+<div id="requirements" class="section level3">
+<h3>Requirements</h3>
 <ul>
-<li>2023
-<ul>
-<li><a href="sudoku-solver.html">Solving Sudoku with Convolution Neural
-Network</a></li>
-<li><a href="website-with-R.html">Creating a website with R</a></li>
-</ul></li>
+<li>A <a href="https://github.com/">Github</a> account</li>
+<li><a href="https://posit.co/download/rstudio-desktop/">R and R
+Studio</a> installed</li>
 </ul>
+<p><br></p>
+</div>
+<div id="creating-a-basic-website" class="section level3">
+<h3>Creating a basic website</h3>
+<p>To start we will need at least these two files:</p>
+<ul>
+<li><code>_site.yml</code> contains metadata and site structure<br />
+</li>
+<li><code>index.Rmd</code> contains the content of the website</li>
+</ul>
+<p>A basic structure of <code>_site.yml</code> looks like this:</p>
+<pre class="r"><code>name: &quot;My Website&quot;
+
+navbar:
+  title: &quot;My Website&quot;
+  left: 
+    - text: &quot;Home&quot;
+      href: index.html</code></pre>
+<p>The matching <code>index.Rmd</code> is:</p>
+<pre class="r"><code>---
+  title: &quot;My Website&quot;
+---
+  
+  Hello, visitor! Welcome to my website.</code></pre>
+<p>R Studio will build a <code>HTML</code> file based on this for
+you.</p>
+<p><br></p>
+</div>
+<div id="building-the-website" class="section level3">
+<h3>Building the website</h3>
+<p>Either run <code>rmarkdown::render_site(encoding = 'UTF-8')</code> or
+use the <code>Build Tool</code> in R Studio. It should show up in the
+upper right as <code>Build</code> after saving your files and restarting
+R Studio.</p>
+<p><br></p>
+</div>
+<div id="multiple-pages" class="section level3">
+<h3>Multiple pages</h3>
+<p>You probably need more than one page. To show how to do that we’ll be
+replicating what I’m currently running.</p>
+<pre class="plaintext"><code>my-website/
+|-- _site.yml
+|-- index.Rmd
+|-- projects.Rmd
+|-- 404.Rmd</code></pre>
+<p>We’ll start with everything outside ´/blog`.</p>
+<p>As you add more pages you will need to update
+<code>_site.yml</code>:</p>
+<pre class="r"><code>name: &quot;Your Name&quot;
+
+navbar:
+  left: 
+    - text: &quot;Home&quot;
+      href: index.html
+    - text: &quot;Projects&quot;
+      href: projects.html
+    - text: &quot;Blog&quot;
+      href: blog/index.html
+      
+  right:
+    - icon: fa-envelope fa-lg
+      href: mailto:&lt;your@mail.com&gt;
+    - icon: fa-github fa-lg
+      href: http://github.com/YOUR_GH/
+      
+output:
+  html_document:
+    self_contained: yes
+    theme: sandstone
+    
+output_dir: &#39;.&#39;</code></pre>
+<p>You can easily choose a default theme from <a
+href="https://bootswatch.com/3/">https://bootswatch.com/3/</a>. I
+personally prefer the standard look.</p>
+<p>Alternatively look into <a href="http://jekyllthemes.org/">Jekyll
+Themes</a> which are a bit more sophisticated.</p>
+<p>Anyways. <code>index.Rmd</code> and <code>projects.Rmd</code> are
+still very basic at this point:</p>
+<pre class="r"><code>---
+  title: &quot;Hi, my name is &lt;YOUR NAME&gt;.&quot;
+---
+  
+  This is my personal website.     </code></pre>
+<pre class="r"><code>---
+  title: &quot;Projects&quot;
+---
+  
+  soon there will be some projects here</code></pre>
+<p>If you want you can also add <code>404.Rmd</code>. I do this to avoid
+the Github standard 404 page.</p>
+<pre class="r"><code>---
+  title: &quot;This page doesn&#39;t seem to exist.&quot;
+---
+Try going back to the [Home Page](index.html).</code></pre>
+<p>You can now add any pages you want or for example a <a
+href="#creating-a-blog">blog</a>.</p>
+<p><br></p>
+</div>
+<div id="hosting-on-github-pages" class="section level3">
+<h3>Hosting on Github Pages</h3>
+<p>You will need to have a repository named
+<code>&lt;YOUR-GH-NAME&gt;.github.io</code> (in my case
+<code>hahnfabian.github.io</code>). Push your code after building the
+website. (In principle you only need the html files. So you could change
+the <code>output_dir</code> to another folder and push your code from
+there.)</p>
+<p>On the website of your repository go to Settings -&gt; Pages.</p>
+<p>Here you can also add a custom domain if you want to (<a
+href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site">more
+info</a>).</p>
+<p><br></p>
+</div>
+<div id="creating-a-blog" class="section level3">
+<h3>Creating a blog</h3>
+<p>Now we want our website to also include a blog (Just like the one you
+are seeing right now).</p>
+<pre class="plaintext"><code>my-website/
+|-- _site.yml
+|-- index.Rmd
+|-- projects.Rmd
+|-- 404.Rmd
+|-- 
+|-- blog/
+|   |-- _site.yml
+|   |-- index.Rmd
+|   |-- 404.Rmd
+|   |-- first-blog-post.Rmd</code></pre>
+<p>To add a link to the blog we expand <code>_site.yml</code> again.</p>
+<pre class="r"><code>name: &quot;Your Name&quot;
+
+navbar:
+  left: 
+    - text: &quot;Home&quot;
+      href: index.html
+    - text: &quot;Projects&quot;
+      href: projects.html
+    - text: &quot;Blog&quot;
+      href: blog/index.html
+      
+  right:
+    - icon: fa-envelope fa-lg
+      href: mailto:&lt;your@mail.com&gt;
+    - icon: fa-github fa-lg
+      href: http://github.com/YOUR_GH/
+      
+output:
+  html_document:
+    self_contained: yes
+    theme: sandstone
+    
+output_dir: &#39;.&#39;</code></pre>
+<p>To start you will need to create the subfolder <code>/blog</code> as
+well <code>index.Rmd</code> and <code>_site.yml</code> (as this is
+needed in every folder).</p>
+<p><code>_site.yml</code> will be almost identical to the one we created
+earlier. Only the direction of the links will be different.</p>
+<pre class="r"><code>name: &quot;Fabian Hahn&quot;
+
+navbar:
+  left: 
+    - text: &quot;Home&quot;
+      href: ../index.html
+    - text: &quot;Projects&quot;
+      href: ../projects.html
+    - text: &quot;Blog&quot;
+      href: index.html
+      
+  right:
+    - icon: fa-envelope fa-lg
+      href: mailto:&lt;your@mail.com&gt;
+    - icon: fa-github fa-lg
+      href: http://github.com/YOUR_GH/
+output:
+  html_document:
+    self_contained: yes
+output_dir: &#39;.&#39;
+
+</code></pre>
+<p>This is my <code>index.Rmd</code> you can obviously do whatever you
+like.</p>
+<pre class="r"><code>---
+  title: &quot;Blog&quot;
+---
+
+Welcome to my blog.
+  
+- 2023
+  - [Creating a website with R](first-blog-post.html)</code></pre>
+<p>Finally we create the blog post
+(<code>first-blog-post.Rmd</code>).</p>
+<pre class="r"><code>---
+  title: &quot;First Blog Post&quot;
+---
+some smart words</code></pre>
+<p><strong>Make sure to run the build in every folder you
+add.</strong></p>
+<p>And that’s it. Everytime you write a new post, add it as a
+<code>.Rmd</code> file and add the link to <code>_site.yml</code>.</p>
+</div>
 
 
 

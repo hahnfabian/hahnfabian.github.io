@@ -6,3 +6,4 @@ This is a collection of some documents, in no particular order other than the ye
   
 - 2023
   - [Solving Sudoku with Convolution Neural Network](sudoku-solver.html)
+  - [Creating a website with R](website-with-R.html)

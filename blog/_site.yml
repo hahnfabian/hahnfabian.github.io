@@ -19,4 +19,3 @@ output:
     self_contained: yes
 output_dir: '.'
 
-theme: sandstone

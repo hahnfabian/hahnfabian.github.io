@@ -18,5 +18,3 @@ output:
   html_document:
     self_contained: yes
 output_dir: '.'
-
-theme: sandstone

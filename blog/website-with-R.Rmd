@@ -1,0 +1,248 @@
+---
+  title: "Creating a website with R"
+---
+### Motivation
+
+After spending way to much time trying to create the perfect website using React, JavaScript, HTML, CSS, etc., I finally realized what should have been obvious from the start:
+Even with maximum effort my design won't be very presentable.
+
+So what's the alternative? Keeping it simple.
+
+TL;DR: keep it simple
+
+<br>
+
+### Introduction
+
+This tutorial will provide an overview into creating a website with R markdown and hosting using your Github account.
+
+<br>
+
+### Requirements
+
+- A [Github](https://github.com/) account
+- [R and R Studio](https://posit.co/download/rstudio-desktop/) installed
+
+<br>
+
+### Creating a basic website
+
+To start we will need at least these two files:
+
+  - `_site.yml` contains metadata and site structure  
+  - `index.Rmd` contains the content of the website  
+
+
+A basic structure of `_site.yml` looks like this:
+```r
+name: "My Website"
+
+navbar:
+  title: "My Website"
+  left: 
+    - text: "Home"
+      href: index.html
+```
+
+The matching `index.Rmd` is:
+```r
+---
+  title: "My Website"
+---
+  
+  Hello, visitor! Welcome to my website.
+```
+R Studio will build a `HTML` file based on this for you.
+
+<br>
+
+### Building the website
+Either run `rmarkdown::render_site(encoding = 'UTF-8')` or use the `Build Tool` in R Studio. It should show up in the upper right as `Build` after saving your files and restarting R Studio.
+
+<br>
+
+### Multiple pages
+
+You probably need more than one page. To show how to do that we'll be replicating what I'm currently running.
+
+```plaintext
+my-website/
+|-- _site.yml
+|-- index.Rmd
+|-- projects.Rmd
+|-- 404.Rmd
+```
+
+We'll start with everything outside ´/blog`.
+
+As you add more pages you will need to update `_site.yml`:
+```r
+name: "Your Name"
+
+navbar:
+  left: 
+    - text: "Home"
+      href: index.html
+    - text: "Projects"
+      href: projects.html
+    - text: "Blog"
+      href: blog/index.html
+      
+  right:
+    - icon: fa-envelope fa-lg
+      href: mailto:<your@mail.com>
+    - icon: fa-github fa-lg
+      href: http://github.com/YOUR_GH/
+      
+output:
+  html_document:
+    self_contained: yes
+    theme: sandstone
+    
+output_dir: '.'
+```
+You can easily choose a default theme from [https://bootswatch.com/3/](https://bootswatch.com/3/). I personally prefer the standard look.
+
+Alternatively look into [Jekyll Themes](http://jekyllthemes.org/) which are a bit more sophisticated.
+
+
+Anyways. `index.Rmd` and `projects.Rmd` are still very basic at this point:
+
+```r
+---
+  title: "Hi, my name is <YOUR NAME>."
+---
+  
+  This is my personal website.     
+```
+
+```r
+---
+  title: "Projects"
+---
+  
+  soon there will be some projects here
+```
+
+If you want you can also add `404.Rmd`. I do this to avoid the Github standard 404 page.
+```r
+---
+  title: "This page doesn't seem to exist."
+---
+Try going back to the [Home Page](index.html).
+```
+You can now add any pages you want or for example a [blog](#creating-a-blog).
+
+
+<br>
+
+### Hosting on Github Pages
+
+You will need to have a repository named `<YOUR-GH-NAME>.github.io` (in my case `hahnfabian.github.io`). Push your code after building the website. (In principle you only need the html files. So you could change the `output_dir` to another folder and push your code from there.) 
+
+On the website of your repository go to Settings -> Pages.
+
+Here you can also add a custom domain if you want to ([more info](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)).
+
+
+<br>
+
+### Creating a blog
+
+Now we want our website to also include a blog (Just like the one you are seeing right now).
+
+```plaintext
+my-website/
+|-- _site.yml
+|-- index.Rmd
+|-- projects.Rmd
+|-- 404.Rmd
+|-- 
+|-- blog/
+|   |-- _site.yml
+|   |-- index.Rmd
+|   |-- 404.Rmd
+|   |-- first-blog-post.Rmd
+```
+
+To add a link to the blog we expand `_site.yml` again.
+```r
+name: "Your Name"
+
+navbar:
+  left: 
+    - text: "Home"
+      href: index.html
+    - text: "Projects"
+      href: projects.html
+    - text: "Blog"
+      href: blog/index.html
+      
+  right:
+    - icon: fa-envelope fa-lg
+      href: mailto:<your@mail.com>
+    - icon: fa-github fa-lg
+      href: http://github.com/YOUR_GH/
+      
+output:
+  html_document:
+    self_contained: yes
+    theme: sandstone
+    
+output_dir: '.'
+```
+
+To start you will need to create the subfolder `/blog` as well `index.Rmd` and `_site.yml` (as this is needed in every folder).
+
+`_site.yml` will be almost identical to the one we created earlier. Only the direction of the links will be different.
+```r
+name: "Fabian Hahn"
+
+navbar:
+  left: 
+    - text: "Home"
+      href: ../index.html
+    - text: "Projects"
+      href: ../projects.html
+    - text: "Blog"
+      href: index.html
+      
+  right:
+    - icon: fa-envelope fa-lg
+      href: mailto:<your@mail.com>
+    - icon: fa-github fa-lg
+      href: http://github.com/YOUR_GH/
+output:
+  html_document:
+    self_contained: yes
+output_dir: '.'
+
+
+```
+
+This is my `index.Rmd` you can obviously do whatever you like.
+```r
+---
+  title: "Blog"
+---
+
+Welcome to my blog.
+  
+- 2023
+  - [Creating a website with R](first-blog-post.html)
+```
+
+Finally we create the blog post (`first-blog-post.Rmd`).
+
+```r
+---
+  title: "First Blog Post"
+---
+some smart words
+```
+
+**Make sure to run the build in every folder you add.**
+
+And that's it. Everytime you write a new post, add it as a `.Rmd` file and add the link to `_site.yml`.
+
+
