@@ -2,7 +2,8 @@
   title: "Blog"
 ---
 
-This is a collection of some documents, in no particular order other than the year.
+This is a collection of some posts, in no particular order other than the year.
+Also: This may not be the height of wisdom, but it's what I knew at the time of writing.
   
 - 2023
   - [Solving Sudoku with Convolution Neural Network](sudoku-solver.html)

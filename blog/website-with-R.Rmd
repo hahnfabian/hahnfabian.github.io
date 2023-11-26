@@ -192,7 +192,7 @@ output:
 output_dir: '.'
 ```
 
-To start you will need to create the subfolder `/blog` as well `index.Rmd` and `_site.yml` (as this is needed in every folder).
+To start you will need to create the subfolder `/blog` as well `index.Rmd` and `_site.yml` (as this is needed in every folder). `404.Rmd` can simply be copied.
 
 `_site.yml` will be almost identical to the one we created earlier. Only the direction of the links will be different.
 ```r
