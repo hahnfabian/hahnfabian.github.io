@@ -1,7 +1,9 @@
 ---
   title: "Projects"
 ---
-### Friend Map
+
+
+#### Friend Map
 This is somewhat like the snap-map. Register to find your friends.
 
 [map.jofaha.de](https://map.jofaha.de)
