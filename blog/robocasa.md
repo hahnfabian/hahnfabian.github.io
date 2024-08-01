@@ -4,7 +4,7 @@ I've had to set up <a href="https://robocasa.ai">Robocasa</a> to simulate manipu
 **IMAGE OR VIDEO HERE**
 
 1. <a href="#installation">Installation</a>
-2. <a href="#spacemouse">Setting Up the SpaceMouse Pro</a>
+2. <a href="#setting-up-the-spacemouse-pro">Setting Up the SpaceMouse Pro</a>
 
 ## Installation
 
