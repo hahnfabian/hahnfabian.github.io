@@ -108,20 +108,20 @@ The [RoboCasa docs](https://robocasa.ai/docs/use_cases/policy_learning.html) may
 #### Experiment Logs
 Make sure your `WANDB_ENTITY` and `WANDB_API_KEY` are set in `robomimic/macros_private.py`. 
 In your experiment file (e.g. `robomimic/exps/templates/diffusion_policy.json`) edit this:
-```bash
+```json
 "logging": {
     # save terminal outputs under `logs/log.txt` in experiment folder
     "terminal_output_to_txt": true,
     
     # save tensorboard logs under `logs/tb` in experiment folder
-    "log_tb": true
+    "log_tb": true,
 
     # save wandb logs under `logs/wandb` in experiment folder
     "log_wandb": true
 },
 ```
 #### Model Checkpoints
-```bash
+```json
 "save": {
     # enable saving model checkpoints
     "enabled": true,
@@ -139,7 +139,7 @@ In your experiment file (e.g. `robomimic/exps/templates/diffusion_policy.json`) 
 ```
 
 #### Evaluating Rollouts and Saving Videos
-```bash
+```json
 "rollout": {
     "enabled": true,              # enable evaluation rollouts
     "n": 50,                      # number of rollouts per evaluation
