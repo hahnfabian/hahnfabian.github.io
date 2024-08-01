@@ -28,7 +28,7 @@ $ ./configure && make && sudo make install
 ```
 Now run `spacenavd` using 
 ```bash
-sudo spacenavd -v
+$ sudo spacenavd -v
 ```
 If there is an existing `spacenavd` daemon running you will get an error: `Spacenav daemon already running (pid: 992). Aborting`. Kill this process with `kill -9 992` and start the daemon.
 
