@@ -6,7 +6,8 @@ I've had to set up <a href="https://robocasa.ai">RoboCasa</a> to simulate manipu
 1. <a href="#installation">Installation</a>
 2. <a href="#setting-up-the-spacemouse-pro">Setting Up the SpaceMouse Pro</a>
 3. <a href="#policy-learning">Policy Learning</a>
-    - <a href="#logging-and-viewing-training-results">Logging and Viewing Training Results </a>
+    - <a href="#training">Training</a>
+    - <a href="#logging-and-viewing-training-results">Logging and Viewing Training Results</a>
 
 ## Installation
 
