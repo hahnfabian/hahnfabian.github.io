@@ -5,10 +5,27 @@ I've had to set up <a href="https://robocasa.ai">Robocasa</a> to simulate manipu
 
 1. <a href="#installation">Installation</a>
 2. <a href="#setting-up-the-spacemouse-pro">Setting Up the SpaceMouse Pro</a>
+3. <a href="#policy-learning">Policy Learning</a>
 
 ## Installation
 
-To install RoboCasa, follow the comprehensive instructions provided in the [RoboCasa documentation](https://github.com/robocasa/robocasa).
+To install RoboCasa, follow the comprehensive instructions provided in the [RoboCasa documentation](https://github.com/robocasa/robocasa). Or just run this. 
+> :warning: **Make sure you are cloning the robocasa branches**
+```bash
+conda create -c conda-forge -n robocasa python=3.9
+conda activate robocasa
+git clone https://github.com/ARISE-Initiative/robosuite -b robocasa_v0.1
+cd robosuite
+pip install -e .
+cd ..
+git clone https://github.com/robocasa/robocasa
+cd robocasa
+pip install -e .
+conda install -c numba numba -y
+python robocasa/scripts/download_kitchen_assets.py   # Caution: Assets to be downloaded are around 5GB.
+python robocasa/scripts/setup_macros.py              # Set up system variables.
+```
+
 
 ## Setting Up the SpaceMouse Pro
 
@@ -58,3 +75,32 @@ You may need to run as `sudo` for the `hidapi` library. To use the correct Pytho
 $ sudo $(which python) robocasa/scripts/collect_human_demonstrations.py --device spacemouse 
 ```
 To get started with collecting demos, first choose a task from the list provided by [robocasa](https://robocasa.ai/docs/tasks_scenes_assets/atomic_tasks.html). Use the --environment flag to indicate which task you want to collect demos for. You can also easily add your own tasks (see further down).
+
+## Policy Learning
+You have to install Robomimic. Once again, make sure to use the robocasa branch.
+```bash
+git clone https://github.com/ARISE-Initiative/robomimic -b robocasa
+cd robomimic
+pip install -e .
+```
+
+### Training
+Each algorithm has a generator script in `scripts/config_gen`. Running this script will give you the commands for your training run(s). To start training you simply need to run the command(s) outputted. To adjust the training change the file in `config_gen` according to the (docs)[https://robomimic.github.io/docs/tutorials/hyperparam_scan.html#step-3-set-hyperparameter-values]. 
+```bash
+python robomimic/scripts/config_gen/diffusion_gen.py --name <name-to-identify-later>
+```
+
+If you want to use your own datasets you will need to convert them from the raw robosuite (robocasa datasets are basically robosuite datasets) into the robomimic format. There are two steps:
+1. Convert to robomimic
+This will convert your dataset in place.
+```bash
+python robomimic/scripts/conversion/convert_robosuite.py --dataset <ds-path>
+```
+3. Extract observations for training
+This script will generate a new dataset with the suffix `_im128.hdf5` in the same directory as `--dataset`. There are a bunch of options for what observations are used. Check out `robomimic/scripts/dataset_states_to_obs.py` for details on the flags you can use. Make sure you are collect the observations your training loop is expecting. 
+```bash
+python robomimic/scripts/dataset_states_to_obs.py --dataset <ds-path>
+```
+
+The (robocasa docs)[https://robocasa.ai/docs/use_cases/policy_learning.html] may go into a bit more detail.
+
