@@ -1,5 +1,5 @@
 # Collecting Demos and Training Policies in RoboCasa
-I've had to set up <a href="https://robocasa.ai">Robocasa</a> to simulate manipulation tasks.
+I've had to set up <a href="https://robocasa.ai">RoboCasa</a> to simulate manipulation tasks.
 
 **IMAGE OR VIDEO HERE**
 
@@ -10,7 +10,7 @@ I've had to set up <a href="https://robocasa.ai">Robocasa</a> to simulate manipu
 ## Installation
 
 To install RoboCasa, follow the comprehensive instructions provided in the [RoboCasa documentation](https://github.com/robocasa/robocasa). Or just run this. 
-> :warning: **Make sure you are cloning the robocasa branches**
+> :warning: **Make sure you are cloning the RoboCasa branches**
 ```bash
 conda create -c conda-forge -n robocasa python=3.9
 conda activate robocasa
@@ -77,7 +77,7 @@ $ sudo $(which python) robocasa/scripts/collect_human_demonstrations.py --device
 To get started with collecting demos, first choose a task from the list provided by [robocasa](https://robocasa.ai/docs/tasks_scenes_assets/atomic_tasks.html). Use the --environment flag to indicate which task you want to collect demos for. You can also easily add your own tasks (see further down).
 
 ## Policy Learning
-You have to install Robomimic. Once again, make sure to use the robocasa branch.
+You have to install Robomimic. Once again, make sure to use the RoboCasa branch.
 ```bash
 git clone https://github.com/ARISE-Initiative/robomimic -b robocasa
 cd robomimic
@@ -90,7 +90,7 @@ Each algorithm has a generator script in `scripts/config_gen`. Running this scri
 python robomimic/scripts/config_gen/diffusion_gen.py --name <name-to-identify-later>
 ```
 
-If you want to use your own datasets you will need to convert them from the raw robosuite (robocasa datasets are basically robosuite datasets) into the robomimic format. There are two steps:
+If you want to use your own datasets you will need to convert them from the raw robosuite (RoboCasa datasets are basically robosuite datasets) into the robomimic format. There are two steps:
 1. Convert to robomimic
 This will convert your dataset in place.
 ```bash
@@ -101,6 +101,6 @@ This script will generate a new dataset with the suffix `_im128.hdf5` in the sam
 ```bash
 python robomimic/scripts/dataset_states_to_obs.py --dataset <ds-path>
 ```
+The [RoboCasa docs](https://robocasa.ai/docs/use_cases/policy_learning.html) may go into a bit more detail.
 
-The [robocasa docs](https://robocasa.ai/docs/use_cases/policy_learning.html) may go into a bit more detail.
 
