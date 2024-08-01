@@ -85,7 +85,7 @@ pip install -e .
 ```
 
 ### Training
-Each algorithm has a generator script in `scripts/config_gen`. Running this script will give you the commands for your training run(s). To start training you simply need to run the command(s) outputted. To adjust the training change the file in `config_gen` according to the (docs)[https://robomimic.github.io/docs/tutorials/hyperparam_scan.html#step-3-set-hyperparameter-values]. 
+Each algorithm has a generator script in `scripts/config_gen`. Running this script will give you the commands for your training run(s). To start training you simply need to run the command(s) outputted. To adjust the training change the file in `config_gen` according to the [docs](https://robomimic.github.io/docs/tutorials/hyperparam_scan.html#step-3-set-hyperparameter-values). 
 ```bash
 python robomimic/scripts/config_gen/diffusion_gen.py --name <name-to-identify-later>
 ```
@@ -102,5 +102,5 @@ This script will generate a new dataset with the suffix `_im128.hdf5` in the sam
 python robomimic/scripts/dataset_states_to_obs.py --dataset <ds-path>
 ```
 
-The (robocasa docs)[https://robocasa.ai/docs/use_cases/policy_learning.html] may go into a bit more detail.
+The [robocasa docs](https://robocasa.ai/docs/use_cases/policy_learning.html) may go into a bit more detail.
 
