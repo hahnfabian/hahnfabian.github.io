@@ -4,13 +4,13 @@ I've had to set up <a href="https://robocasa.ai">Robocasa</a> to simulate manipu
 **IMAGE OR VIDEO HERE**
 
 1. <a href="#installation">Installation</a>
-2. <a href="#installation">Installation</a>
+2. <a href="#spacemouse">Setting Up the SpaceMouse Pro</a>
 
 ## Installation
 
 To install RoboCasa, follow the comprehensive instructions provided in the [RoboCasa documentation](https://github.com/robocasa/robocasa).
 
-### Setting Up the SpaceMouse Pro
+## Setting Up the SpaceMouse Pro
 
 You will need to install the drivers. Check out the complete documentation at [https://spacenav.sourceforge.net](https://spacenav.sourceforge.net).
 
