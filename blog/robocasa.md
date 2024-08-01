@@ -6,6 +6,7 @@ I've had to set up <a href="https://robocasa.ai">RoboCasa</a> to simulate manipu
 1. <a href="#installation">Installation</a>
 2. <a href="#setting-up-the-spacemouse-pro">Setting Up the SpaceMouse Pro</a>
 3. <a href="#policy-learning">Policy Learning</a>
+    - <a href="#logging-and-viewing-training-results">Logging and Viewing Training Results </a>
 
 ## Installation
 
@@ -103,4 +104,5 @@ python robomimic/scripts/dataset_states_to_obs.py --dataset <ds-path>
 ```
 The [RoboCasa docs](https://robocasa.ai/docs/use_cases/policy_learning.html) may go into a bit more detail.
 
+### Logging and Viewing Training Results 
 
