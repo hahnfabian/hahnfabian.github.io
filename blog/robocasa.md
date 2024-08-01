@@ -4,6 +4,8 @@
 
 1. <a href="#installation">Installation</a>
 2. <a href="#setting-up-the-spacemouse-pro">Setting Up the SpaceMouse Pro</a>
+    - <a href="#drivers">Drivers</a>
+    - <a href="#linking-to-robocasa">Linking to RoboCasa</a>
 3. <a href="#policy-learning">Policy Learning</a>
     - <a href="#training">Training</a>
     - <a href="#logging-and-viewing-training-results">Logging and Viewing Training Results</a>
@@ -28,7 +30,7 @@ python robocasa/scripts/setup_macros.py              # Set up system variables.
 
 
 ## Setting Up the SpaceMouse Pro
-
+### Drivers
 You will need to install the drivers. Check out the complete documentation at [https://spacenav.sourceforge.net](https://spacenav.sourceforge.net).
 
 ```bash
@@ -53,7 +55,7 @@ Confirm the install is correct by running the example in `lipsnav/example/cube`.
 
 Finally you need spanv which you can get via pip (?) --> add link to other thing maybe...
 
-
+### Linking to RoboCasa
 You might need to update the `SPACEMOUSE_VENDOR_ID` and `SPACEMOUSE_PRODUCT_ID` in `robosuite/macros_private.py` and `robocasa/macros_private.py` to match your SpaceMouse. You can find these IDs using:
 
 ```bash
