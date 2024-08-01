@@ -11,8 +11,7 @@ I've had to set up <a href="https://robocasa.ai">RoboCasa</a> to simulate manipu
 
 ## Installation
 
-To install RoboCasa, follow the comprehensive instructions provided in the [RoboCasa documentation](https://github.com/robocasa/robocasa). Or just run this. 
-> :warning: **Make sure you are cloning the RoboCasa branches**
+To install RoboCasa, follow the comprehensive instructions provided in the [RoboCasa documentation](https://github.com/robocasa/robocasa). **Make sure you are cloning the RoboCasa branches.**
 ```bash
 conda create -c conda-forge -n robocasa python=3.9
 conda activate robocasa
