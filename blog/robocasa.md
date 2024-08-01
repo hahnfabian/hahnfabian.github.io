@@ -17,8 +17,8 @@ You will need to install the drivers. Check out the complete documentation at [h
 ```bash
 $ git clone https://github.com/FreeSpacenav/spacenavd.git
 $ # These dependencies may be needed:
-$ sudo apt-get install libxi-dev
-$ sudo apt-get install libXtst-dev
+$ # sudo apt-get install libxi-dev
+$ # sudo apt-get install libXtst-dev
 $ cd spacenavd
 $ ./configure && make && sudo make install
 $ cd ..
