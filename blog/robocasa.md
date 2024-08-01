@@ -56,7 +56,7 @@ Confirm the install is correct by running the example in `lipsnav/example/cube`.
 Finally you need spanv which you can get via pip (?) --> add link to other thing maybe...
 
 
-You might need to update the `SPACEMOUSE_VENDOR_ID` and `SPACEMOUSE_PRODUCT_ID` in `robosuite/macros.py` (and `robocasa/macros.py` (?)) to match your SpaceMouse. You can find these IDs using:
+You might need to update the `SPACEMOUSE_VENDOR_ID` and `SPACEMOUSE_PRODUCT_ID` in `robosuite/macros_private.py` and `robocasa/macros_private.py` to match your SpaceMouse. You can find these IDs using:
 
 ```bash
 lsusb
@@ -106,4 +106,48 @@ python robomimic/scripts/dataset_states_to_obs.py --dataset <ds-path>
 The [RoboCasa docs](https://robocasa.ai/docs/use_cases/policy_learning.html) may go into a bit more detail.
 
 ### Logging and Viewing Training Results 
+#### Experiment Logs
+Make sure your `WANDB_ENTITY` and `WANDB_API_KEY` are set in `robomimic/macros_private.py`. 
+In your experiment file (e.g. `robomimic/exps/templates/diffusion_policy.json`) edit this:
+```bash
+"logging": {
+    # save terminal outputs under `logs/log.txt` in experiment folder
+    "terminal_output_to_txt": true,
+    
+    # save tensorboard logs under `logs/tb` in experiment folder
+    "log_tb": true
+
+    # save wandb logs under `logs/wandb` in experiment folder
+    "log_wandb": true
+},
+```
+#### Model Checkpoints
+```bash
+"save": {
+    # enable saving model checkpoints
+    "enabled": true,
+    
+    # controlling frequency of checkpoints
+    "every_n_seconds": null,
+    "every_n_epochs": 50,
+    "epochs": [],
+    
+    # saving the best checkpoints
+    "on_best_validation": false,
+    "on_best_rollout_return": false,
+    "on_best_rollout_success_rate": true
+},
+```
+
+#### Evaluating Rollouts and Saving Videos
+```bash
+"rollout": {
+    "enabled": true,              # enable evaluation rollouts
+    "n": 50,                      # number of rollouts per evaluation
+    "horizon": 400,               # number of timesteps per rollout
+    "rate": 50,                   # frequency of evaluation (in epochs)
+    "terminate_on_success": true  # terminating rollouts upon task success
+}
+```
+To save videos of the rollpouts, set `render_video` to `True`.
 
