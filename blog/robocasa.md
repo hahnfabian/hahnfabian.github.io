@@ -94,11 +94,13 @@ python robomimic/scripts/config_gen/diffusion_gen.py --name <name-to-identify-la
 
 If you want to use your own datasets you will need to convert them from the raw robosuite (RoboCasa datasets are basically robosuite datasets) into the robomimic format. There are two steps:
 1. Convert to robomimic
+
 This will convert your dataset in place.
 ```bash
 python robomimic/scripts/conversion/convert_robosuite.py --dataset <ds-path>
 ```
 2. Extract observations for training
+
 This script will generate a new dataset with the suffix `_im128.hdf5` in the same directory as `--dataset`. There are a bunch of options for what observations are used. Check out `robomimic/scripts/dataset_states_to_obs.py` for details on the flags you can use. Make sure you are collect the observations your training loop is expecting. 
 ```bash
 python robomimic/scripts/dataset_states_to_obs.py --dataset <ds-path>
