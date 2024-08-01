@@ -32,20 +32,20 @@ python robocasa/scripts/setup_macros.py              # Set up system variables.
 You will need to install the drivers. Check out the complete documentation at [https://spacenav.sourceforge.net](https://spacenav.sourceforge.net).
 
 ```bash
-$ git clone https://github.com/FreeSpacenav/spacenavd.git
-$ # These dependencies may be needed:
-$ # sudo apt-get install libxi-dev
-$ # sudo apt-get install libXtst-dev
-$ cd spacenavd
-$ ./configure && make && sudo make install
-$ cd ..
-$ git clone https://github.com/FreeSpacenav/libspnav
-$ cd libspnav
-$ ./configure && make && sudo make install
+git clone https://github.com/FreeSpacenav/spacenavd.git
+# These dependencies may be needed:
+# sudo apt-get install libxi-dev
+# sudo apt-get install libXtst-dev
+cd spacenavd
+./configure && make && sudo make install
+cd ..
+git clone https://github.com/FreeSpacenav/libspnav
+cd libspnav
+./configure && make && sudo make install
 ```
 Now run `spacenavd` using 
 ```bash
-$ sudo spacenavd -v
+sudo spacenavd -v
 ```
 If there is an existing `spacenavd` daemon running you will get an error: `Spacenav daemon already running (pid: 992). Aborting`. Kill this process with `kill -9 992` and start the daemon.
 
@@ -54,10 +54,10 @@ Confirm the install is correct by running the example in `lipsnav/example/cube`.
 Finally you need spanv which you can get via pip (?) --> add link to other thing maybe...
 
 
-You might need to update the `SPACEMOUSE_VENDOR_ID` and `SPACEMOUSE_PRODUCT_ID` in `robosuite/macros.py` (and `robocasa/macros.py` (?)) to match your SpaceMouse. You can find these IDs using the command:
+You might need to update the `SPACEMOUSE_VENDOR_ID` and `SPACEMOUSE_PRODUCT_ID` in `robosuite/macros.py` (and `robocasa/macros.py` (?)) to match your SpaceMouse. You can find these IDs using:
 
 ```bash
-$ lsusb
+lsusb
 ```
 Remember to add `0x` in front if you use the base-16 numbers.
 
