@@ -1,4 +1,4 @@
-# Simulation in RoboCasa
+# Collecting Demos and Training Policies in RoboCasa
 I've had to set up <a href="https://robocasa.ai">Robocasa</a> to simulate manipulation tasks.
 
 **IMAGE OR VIDEO HERE**
