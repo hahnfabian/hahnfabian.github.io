@@ -98,11 +98,12 @@ This will convert your dataset in place.
 ```bash
 python robomimic/scripts/conversion/convert_robosuite.py --dataset <ds-path>
 ```
-3. Extract observations for training
+2. Extract observations for training
 This script will generate a new dataset with the suffix `_im128.hdf5` in the same directory as `--dataset`. There are a bunch of options for what observations are used. Check out `robomimic/scripts/dataset_states_to_obs.py` for details on the flags you can use. Make sure you are collect the observations your training loop is expecting. 
 ```bash
 python robomimic/scripts/dataset_states_to_obs.py --dataset <ds-path>
 ```
+
 The [RoboCasa docs](https://robocasa.ai/docs/use_cases/policy_learning.html) may go into a bit more detail.
 
 ### Logging and Viewing Training Results 
