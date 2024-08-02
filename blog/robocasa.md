@@ -5,8 +5,8 @@
 1. <a href="#installation">Installation</a>
 2. <a href="#setting-up-the-spacemouse-pro">Setting Up the SpaceMouse Pro</a>
     - <a href="#drivers">Drivers</a>
-    - <a href="#linking-to-robocasa">Linking to RoboCasa</a>
-3. <a href="#policy-learning">Policy Learning</a>
+    - <a href="#collecting-demonstrations">Collecting Demonstrations</a>
+4. <a href="#policy-learning">Policy Learning</a>
     - <a href="#training">Training</a>
     - <a href="#logging-and-viewing-training-results">Logging and Viewing Training Results</a>
 
@@ -55,7 +55,7 @@ Confirm the install is correct by running the example in `lipsnav/example/cube`.
 
 Finally you need spanv which you can get via pip (?) --> add link to other thing maybe...
 
-### Linking to RoboCasa
+### Collecting Demonstrations
 You might need to update the `SPACEMOUSE_VENDOR_ID` and `SPACEMOUSE_PRODUCT_ID` in `robosuite/macros_private.py` and `robocasa/macros_private.py` to match your SpaceMouse. You can find these IDs using:
 
 ```
@@ -73,6 +73,7 @@ You may need to run as `sudo` for the `hidapi` library. To use the correct Pytho
 sudo $(which python) robocasa/scripts/collect_human_demonstrations.py --device spacemouse 
 ```
 To get started with collecting demos, first choose a task from the list provided by [robocasa](https://robocasa.ai/docs/tasks_scenes_assets/atomic_tasks.html). Use the --environment flag to indicate which task you want to collect demos for. You can also easily add your own tasks (see further down).
+
 
 ## Policy Learning
 You have to install Robomimic. Once again, make sure to use the RoboCasa branch.
