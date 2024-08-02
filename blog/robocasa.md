@@ -65,7 +65,7 @@ Remember to add `0x` in front if you use the base-16 numbers.
 
 For some SpaceMouse models, you may need to manually activate the logic by modifying the `run` function. Add `or True` to the line as shown below:
 
-``` python
+``` 
 if self.product_id == 50741 or True:
 ```
 You may need to run as `sudo` for the `hidapi` library. To use the correct Python version (the one from your Conda environment), you will have to replace `python` with `$(which python)`. This ensures that the Python interpreter being used is the one from your Conda environment, rather than the system-wide Python.
