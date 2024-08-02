@@ -88,7 +88,7 @@ if keyboard.is_pressed('r'):
 ```
 
 ## Policy Learning
-You have to install Robomimic. Once again, make sure to use the RoboCasa branch.
+The easiest option is to use [Robomimic](https://robomimic.github.io/). Once again, make sure to use the RoboCasa branch.
 ```
 git clone https://github.com/ARISE-Initiative/robomimic -b robocasa
 cd robomimic
