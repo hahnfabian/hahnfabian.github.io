@@ -74,6 +74,18 @@ sudo $(which python) robocasa/scripts/collect_human_demonstrations.py --device s
 ```
 To get started with collecting demos, first choose a task from the list provided by [robocasa](https://robocasa.ai/docs/tasks_scenes_assets/atomic_tasks.html). Use the `--environment` flag to indicate which task you want to collect demos for. You can also easily add your own tasks (see further down).
 
+#### Option to disregard demonstrations
+Oftentimes a demonstration might not be optimal. I modified `collect_demos.py` so that I can delete a bad demonstration while I'm collecting it. A prerequisite is that you install `keyboard`.
+```
+pip install keyboard
+```
+I then added the functionality to the start of the loop in `collect_human_trajectory`.
+```
+if keyboard.is_pressed('r'):
+    print("Disregarding trajectory due to 'R' key press.")
+    discard_traj = True
+    break
+```
 
 ## Policy Learning
 You have to install Robomimic. Once again, make sure to use the RoboCasa branch.
