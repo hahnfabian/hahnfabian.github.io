@@ -1,48 +1,58 @@
 <!DOCTYPE html>
-<html><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="./favicon.png">
-<title>Fabian Hahn</title>
-
-<style>
-  body {
-    margin: 40px auto;
-    max-width: 650px;
-    font: .8em/1.5 Helvetica;
-    color: #444;
-    font-size: 15px;
-    padding: 0 10px;
-  }
-  h1, h2, h3 {
-    line-height: 1.5;
-  }
-  div.title {
-    font-weight: bold;
-  }
-  li {
-    margin: 1em auto;
-    line-height: 1.5;
-  }
-</style>
-
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fabian Hahn</title>
+  <style>
+    body {
+      margin: 40px auto;
+      max-width: 650px;
+      font: .8em/1.5 Helvetica;
+      color: #444;
+      font-size: 15px;
+      padding: 0 10px;
+      background: no-repeat center center fixed;
+      background-size: cover;
+    } 
+    .content {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      line-height: 1.5;
+      cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+    }
+    div.title {
+      font-weight: bold;
+    }
+    li {
+      margin: 1em auto;
+      line-height: 1.5;
+    }
+  </style>
 </head>
-
 <body>
-
-<h1>Fabian Hahn</h1>
-
-<p style="margin-top: -1em;">
-<a href="./blog/index.html">blog</a> &nbsp;/&nbsp;
-<a href="./cv_fabian_hahn.pdf">cv</a> &nbsp;/&nbsp;
-<a href="https://www.linkedin.com/in/johannes-fabian-hahn/">linkedin</a> &nbsp;/&nbsp;
-<a href="https://github.com/hahnfabian">github</a> 
-</p>
-
-<p> I'm a third-year Computer Science undergrad at the University of Hamburg in Germany. I'm currently interning as a <a href="https://riss.ri.cmu.edu/student/fabian-hahn/">Robotics Institute Summer Scholar</a> at Carnegie Mellon University's Robotics Institute. </p>
-
-<p> During my undergrad, I've had the fortune of spending two semesters studying abroad at the University of Granada in Spain. </p>
-
-
-</body></html>
+  <div class="content">
+    <h1>Fabian Hahn</h1>
+    <p style="margin-top: -1em;">
+      <a href="./blog/index.html">blog</a> &nbsp;/&nbsp;
+      <a href="./cv_fabian_hahn.pdf">cv</a> &nbsp;/&nbsp;
+      <a href="https://www.linkedin.com/in/johannes-fabian-hahn/">linkedin</a> &nbsp;/&nbsp;
+      <a href="https://github.com/hahnfabian">github</a>
+    </p>
+    <p> I'm a third-year Computer Science undergrad at the University of Hamburg in Germany. I'm currently interning as a <a href="https://riss.ri.cmu.edu/student/fabian-hahn/">Robotics Institute Summer Scholar</a> at Carnegie Mellon University's Robotics Institute. </p>
+    <p> During my undergrad, I've had the fortune of spending two semesters studying abroad at the University of Granada in Spain. </p>
+  </div>
+  <script>
+    document.querySelector('h1').addEventListener('click', function() {
+      var body = document.body;
+      if (body.style.backgroundImage === 'url("background.jpg")') {
+        body.style.backgroundImage = 'none';
+      } else {
+        body.style.backgroundImage = 'url("background.jpg")';
+      }
+    });
+  </script>
+</body>
+</html>
