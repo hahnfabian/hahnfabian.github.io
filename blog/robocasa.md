@@ -84,7 +84,7 @@ You may need to run as `sudo` for the `hidapi` library. To use the correct Pytho
 ```
 sudo $(which python) robocasa/scripts/collect_human_demonstrations.py --device spacemouse 
 ```
-To get started with collecting demos, first choose a task from the list provided by [robocasa](https://robocasa.ai/docs/tasks_scenes_assets/atomic_tasks.html). Use the `--environment` flag to indicate which task you want to collect demos for. You can also easily add your own tasks (see further down).
+To get started with collecting demos, first choose a task from the list provided by [robocasa](https://robocasa.ai/docs/tasks_scenes_assets/atomic_tasks.html). Use the `--environment` flag to indicate which task you want to collect demos for. You can also easily add your own tasks. Make sure that your custom task is also available in the environment you are training in (e.g. when your training is done on a different server, add the code for the custom task as robomimic needs to have that information to generate observations from your `demo.hdf5`).
 
 #### Option to disregard demonstrations
 Oftentimes a demonstration might not be optimal. I modified `collect_demos.py` so that I can delete a bad demonstration while I'm collecting it. A prerequisite is that you install `keyboard`.
