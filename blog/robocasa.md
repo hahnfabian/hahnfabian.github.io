@@ -1,5 +1,5 @@
 # Collecting Demos and Training Policies in RoboCasa
-<a href="./index.html">all posts</a>
+(<a href="./index.html">all posts</a>)
 
 1. <a href="#installation">Installation</a>
 2. <a href="#setting-up-the-spacemouse-pro">Setting Up the SpaceMouse Pro</a>
