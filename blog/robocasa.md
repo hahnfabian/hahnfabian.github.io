@@ -68,6 +68,19 @@ For some SpaceMouse models, you may need to manually activate the logic by modif
 ``` 
 if self.product_id == 50741 or True:
 ```
+This problem is occuring in RoboCasa with the following error message:
+```
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/mnt/ssd1/research4/miniconda3/envs/robocasa/lib/python3.9/threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "/mnt/ssd1/research4/miniconda3/envs/robocasa/lib/python3.9/threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "/mnt/ssd1/research4/robosuite/robosuite/devices/spacemouse.py", line 269, in run
+    self.roll = convert(d[7], d[8])
+IndexError: list index out of range
+```
+
 You may need to run as `sudo` for the `hidapi` library. To use the correct Python version (the one from your Conda environment), you will have to replace `python` with `$(which python)`. This ensures that the Python interpreter being used is the one from your Conda environment, rather than the system-wide Python.
 ```
 sudo $(which python) robocasa/scripts/collect_human_demonstrations.py --device spacemouse 
