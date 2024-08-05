@@ -82,7 +82,7 @@ IndexError: list index out of range
 
 You may need to run as `sudo` for the `hidapi` library. To use the correct Python version (the one from your Conda environment), you will have to replace `python` with `$(which python)`. This ensures that the Python interpreter being used is the one from your Conda environment, rather than the system-wide Python.
 ```
-sudo $(which python) robocasa/scripts/collect_human_demonstrations.py --device spacemouse 
+sudo $(which python) robocasa/scripts/collect_demos.py --environment <your-env-of-choice> 
 ```
 To get started with collecting demos, first choose a task from the list provided by [robocasa](https://robocasa.ai/docs/tasks_scenes_assets/atomic_tasks.html). Use the `--environment` flag to indicate which task you want to collect demos for. You can also easily add your own tasks. Make sure that your custom task is also available in the environment you are training in (e.g. when your training is done on a different server, add the code for the custom task as robomimic needs to have that information to generate observations from your `demo.hdf5`).
 
