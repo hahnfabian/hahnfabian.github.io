@@ -9,11 +9,11 @@
   },
   {
     "name": "cv",
-    "url": "https://jfhahn.de/cv_fabian_hahn.pdf"
+    "url": "../cv_fabian_hahn.pdf"
   },
   {
     "name": "blog",
-    "url": "https://jfhahn.de/blog"
+    "url": "../blog"
   },
   {
     "name": "linkedin",
@@ -21,10 +21,10 @@
   },
   {
     "name": "riss24",
-    "url": "https://jfhahn.de/riss"
+    "url": "../riss"
   },
   {
     "name": "riss",
-    "url": "https://jfhahn.de/riss"
+    "url": "../riss"
   }
 ]
