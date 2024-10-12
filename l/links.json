@@ -1,11 +1,7 @@
-[  
+[
   {
-    "name": "404",
-    "url": "https://jfhahn.de/"
-  },
-  {
-    "name": "index",
-    "url": "https://jfhahn.de/"
+	"name": "404",
+	"url": "../404.html"
   },
   {
     "name": "gh",
